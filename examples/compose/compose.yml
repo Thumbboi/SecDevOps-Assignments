@@ -23,7 +23,7 @@ services:
     restart: always
 
   anonaddy:
-    image: anonaddy/anonaddy:latest
+    image: maartent/secdevops:master
     container_name: anonaddy
     depends_on:
       - db
