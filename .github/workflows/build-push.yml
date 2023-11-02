@@ -17,7 +17,7 @@ on:
       - '**.md'
 
 env:
- DOCKERHUB_SLUG: maartent/secdevops
+ DOCKERHUB_SLUG: maartent/secdevops:anonaddy
 
 jobs:
  build:
