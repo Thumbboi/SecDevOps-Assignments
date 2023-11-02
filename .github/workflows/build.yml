@@ -1,93 +1,45 @@
 name: build
 
-
 concurrency:
-
  group: ${{ github.workflow }}-${{ github.ref }}
-
  cancel-in-progress: true
 
-
 on:
-
  push:
-
     branches:
-
       - 'master'
-
     tags:
-
       - '*'
-
     paths-ignore:
-
       - '**.md'
-
  pull_request:
-
     paths-ignore:
-
       - '**.md'
-
 
 env:
-
  DOCKERHUB_SLUG: anonaddy/anonaddy
 
-
 jobs:
-
  build:
-
     runs-on: ubuntu-20.04
-
     steps:
-
       -
-
         name: Checkout
-
         uses: actions/checkout@v4
-
       -
-
         name: Docker meta
-
         id: meta
-
         uses: docker/metadata-action@v4
-
         with:
-
           images: |
-
             ${{ env.DOCKERHUB_SLUG }}
-
           tags: |
-
             type=match,pattern=(.*)-r,group=1
-
-            type=ref,event=pr
-
+            type=ref,event=push
             type=edge
-
           labels: |
-
             org.opencontainers.image.title=AnonAddy
-
             org.opencontainers.image.description=Anonymous Email Forwarding
-
             org.opencontainers.image.vendor=CrazyMax
-
       -
-
-        name: Set up QEMU
-
-        uses: docker/setup-qemu-action@v2
-
-      -
-
-        name: Set up Docker Buildx
-
-        uses: docker/setup-
+        name: Set up
