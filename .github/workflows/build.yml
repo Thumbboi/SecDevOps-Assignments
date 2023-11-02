@@ -33,10 +33,7 @@ jobs:
         with:
           images: |
             ${{ env.DOCKERHUB_SLUG }}
-          tags: |
-            type=match,pattern=(.*)-r,group=1
-            type=ref,event=push
-            type=edge
+          tags: ${{ steps.meta.outputs.tags }}
           labels: |
             org.opencontainers.image.title=AnonAddy
             org.opencontainers.image.description=Anonymous Email Forwarding
