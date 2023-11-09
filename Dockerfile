@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-#testcomm
+#testcomment
 ARG ANONADDY_VERSION=0.14.1
 
 FROM crazymax/yasu:latest AS yasu
